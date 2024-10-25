@@ -1,0 +1,51 @@
+
+   1
+    a)  /rosout
+    b) The purpose of /rosout node is for subscribing, logging, and republishing the messages
+    c)  /rosout
+        /rosout_agg
+    d)  Subscriptions: 
+        * /rosout [unknown type]
+    e) Publications: 
+        * /rosout_agg [rosgraph_msgs/Log
+    f) Services: 
+        * /rosout/get_loggers
+        * /rosout/set_logger_level
+    g) It is observed that the rosnode /rosout is listed as a running node even after killing it, it is also observed that the rosnode can be killed by killing  the rosmaster.
+
+    h) rosnode cleanup : purge registration information of unreachable nodes
+       rosnode info :	print information about node
+       rosnode kill :	kill a running node
+       rosnode list :	list active nodes
+       rosnode machine : ist nodes running on a particular machine or list machines
+       rosnode ping :	test connectivity to node
+  2
+    b) observations: From the rqt_graph it is observed that there are 3 running nodes - publishernode, rqt_graph node and /rosout node. The publishernode sharan_pubnode is publishing to rosout.
+
+    d) From the rqt_graph it is observed that three publisher nodes(renamed as sharan_node1 ) is running and it is publishing to rosout.
+    
+  3
+    b) It is observed that the publishernode sharan_pubnode is publishing to topic /Greetings and /rosout.
+       Subscribernode RAA24_subnode is subscribing from /Greetings and is publishing to /rosout
+  
+  4
+    a)rosnode list
+      /CET
+      /M1RAA_24_26_5673_1729787990905
+      /rosout
+      /sharan
+
+    b) rostopic list
+       /hello_class
+       /hello_college
+       /rosout
+       /rosout_agg
+       /welcome
+   
+    c) n ROS Noetic, the rosout node serves as the centralized logging system for ROS.rosout plays a crucial role in monitoring and debugging ROS applications.Its main roles include:Log           Management,Output Display,Integration,Error Tracking:
+
+       d)  UserWarning: 'M1RAA 2024_6909_1729788629641' is not a legal ROS basename.
+     This may cause problems with other ROS tools.
+  rospy.init_node("M1RAA 2024",anonymous=True)
+[FATAL] [1729788629.777323]: unable to register service [/M1RAA 2024_6909_1729788629641/get_loggers] with master: ERROR: parameter [service] contains illegal chars
+[FATAL] [1729788629.778843]: unable to register service [/M1RAA 2024_6909_1729788629641/set_logger_level] with master: ERROR: parameter [service] contains illegal chars
